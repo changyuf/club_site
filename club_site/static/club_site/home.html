@@ -1,0 +1,45 @@
+{% extends "club_site/base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit">
+        <h2 align="center">俱乐部简介</h2>
+
+        <p>本俱乐部创建于2011/5/21: 这是后沙峪地区历史最悠久的羽毛球活动爱好者群，这是一个充满欢歌笑语的群，
+            是一个大家因为共同的爱好走到一起、从陌生迅速成为朋友的群，群宗旨是为了方便球友们互相约着打球，兼顾灌水功能
+            。本群的口号是：我打球，我灌水，我快乐！ 本群周二，四晚上7：00~9：00，周六晚上3：00~6：00由David组织打球，其他时间想打球的互相约。
+            活动地点为天裕胜羽毛球馆。组织者负责提供羽毛球和场地，打球费用AA，球友根据打球人数每次交20~35元。
+            如果你是高手，请加入，一起交流球技，相互学习；如果你是新人，请加入，我们提供免费的指导，让你可以早日体会挥拍奋战的快乐！
+            请群友们互相尊重，保持群的和谐。灌水时，开玩笑点到为止。 球馆地址信息见群相册
+            <br>● 新人第一次活动请电话/QQ/微信组织者。联系人：David，联系电话：13601372153；联系QQ/微信：163679
+            <br>● QQ群 146219289 欢迎入群交流。
+        </p>
+        <!--p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p-->
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        {% if activities %}
+        <ul>
+            {% for activity in activities %}
+            <li><a href="/polls/{{ title.id }}/">{{ activity.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No Activity are available.</p>
+        {% endif %}
+    </div>
+
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+

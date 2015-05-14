@@ -64,7 +64,7 @@ DATABASES = {
         'NAME': 'club_robot_test_2',
         'USER': 'changyuf',
         'PASSWORD': 'changyuf',
-        'HOST': '104.131.158.219',
+        'HOST': '192.168.1.9',
         'PORT': '3306',
     }
 }
