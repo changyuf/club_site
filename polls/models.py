@@ -1,33 +1,23 @@
-# -*- coding:utf8 -*-
+import datetime
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
-
-
 class Question(models.Model):
-    question_text = models.CharField(max_length=200, verbose_name="问题内容")
-    pub_date = models.DateTimeField('发布日期')
-
-    class Meta:
-        verbose_name = "问题"
-        verbose_name_plural = "问题"
-        #app_label = 'myapp'
-
-    def __unicode__(self):
-        return self.question_text
+	question_text = models.CharField(max_length=200)
+	pub_date = models.DateTimeField('date published')
+	
+	def __unicode__(self):
+		return self.question_text
+		
+	def was_published_recently(self):
+		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    class Meta:
-        verbose_name = "选择"
-        verbose_name_plural = "选择"
-
-    def __unicode__(self):
-        return self.choice_text
-
-
-
+	question = models.ForeignKey(Question)
+	choice_text = models.CharField(max_length=200)
+	votes = models.IntegerField(default=0)
+	
+	def __unicode__(self):
+		return self.choice_text
